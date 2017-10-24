@@ -1,0 +1,87 @@
+
+.searchDIV{
+    padding: 35px 0px;
+}
+.searchDIV>div{
+    width: 850px;
+    height: 160px;
+    margin: auto;
+}
+.searchDIV div p{
+    height: 80px;
+    margin: 0px;
+    text-align: center;
+    padding-top: 20px;
+}
+.searchDIV div p:first-child{
+    border-bottom: 1px solid #EBEBEB;
+    padding-top: 25px;
+        // padding-bottom: 25px;
+
+}
+.searchDIV div p>span{
+    width: 63px;
+    height: 35px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 35px;
+    text-align: right;
+    margin-right: 20px;
+    font-size: 14px;
+    color: #7A7A7A;
+}
+.searchDIV div p span.time-group{
+    width: inherit !important;
+    position: relative;
+    margin-right: 0px;
+}
+.searchDIV div p span.time-group input{
+    letter-spacing: 2px;
+}
+.searchDIV div p span.time-group i{
+    position: absolute;
+    font-size: 15px;
+    right: 30px;
+    top: 0px;
+}
+.searchDIV div p input{
+    width: 155px;
+    height: 35px;
+    padding: 15px;
+    vertical-align: middle;
+    border: 1px solid #EBEBEB;
+    margin-right: 15px;
+    font-size: 14px;
+    color: #909090;
+}
+.searchDIV div p input:before{
+    content: "1";
+}
+
+.searchDIV div p button{
+    width: 115px;
+    height: 35px;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #488FFE;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background: #488FFE;
+    color: #FFFFFF;
+    line-height: 25px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    font-size: 16px;
+}
+.searchDIV div p button:hover,.searchDIV div p button:focus{
+    background: #4c7cff;
+}
+.searchDIV div p button i{
+    width: 15px;
+    height: 15px;
+    margin-left: 5px;
+}

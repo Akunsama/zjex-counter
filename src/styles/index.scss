@@ -1,0 +1,678 @@
+// @import './elementui.scss';
+// @import './ht.scss';
+@import './modal.scss';
+@import './table.scss';
+@import './search.scss';
+// @import './select.scss';
+@import './elementui.scss';
+
+
+/*
+ * Main Classes
+ *--------------*/
+* {
+  outline: none !important;
+}
+
+body,.main-container{
+	width: 100%;
+	min-width: 1200px;
+	font-family: "Hiragino Sans GB", "微软雅黑", sans-serif;
+	position: relative;
+}
+.h1,h1,.h2,h2,.h3,h3,.h4,h4,.h5,h5,.h6,h6 {
+  color: #333;
+  font-weight: 400;
+  margin: 0 0 30px;
+}
+.h3,h3 {
+  font-size: 22px;
+}
+// 表格内容不折行 内容少
+.mui-wrap{
+  td{
+    white-space: nowrap;
+  }
+}
+//股
+  .mui-avolik{
+      position: relative;
+      &:after{
+        content:'股';
+        position: absolute;
+        right: 0px;
+        top: 30%;
+      }
+    }
+.cpdf {
+           position: fixed;
+           top: 0;
+           left: 0;
+           background-color: rgba(0, 0, 0, .5);
+           width: 100%;
+           height: 100%;
+           z-index: 99999;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           .center {
+                 text-align: center;
+                 height: 100%;
+                 overflow: auto;
+                 padding-top: 20px;
+                 .contor {
+                       margin-bottom: 10px;
+                 }
+           }
+     }
+//必填标识
+.mui-required{
+  position: relative;
+  &:before{
+    content: "*";
+    position: absolute;
+    color: #ff4949;
+     margin-left: -10px;
+  }
+}
+
+     
+//分页
+// .el-pagination{
+//   float: right
+// }
+// 泡泡 提示   应用：1文件上传（机构开户文件）  2所有表格（游客绑定信息 表格注释部分）  
+.mui-operationTips{
+  position: relative;
+  font{
+    max-width: 120px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    overflow: hidden;
+  }
+  .tipsPop{
+    position: absolute;
+    margin: 0px;
+    background: #FFFFFF;
+    z-index: 1;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    -webkit-animation: 0.3s animationSubMenu;
+    -o-animation: 0.3s animationSubMenu;
+    animation: 0.3s animationSubMenu;
+    border: 1px solid #EBEBEB;
+    top: 30px;
+    -webkit-box-shadow: 0 0 5px 4px rgba(140, 140, 141, 0.15);
+    -moz-box-shadow: 0 0 5px 4px rgba(140, 140, 141, 0.15);
+    box-shadow: 0 0 5px 4px rgba(140, 140, 141, 0.15);
+    display: none;
+    width: 350px;
+    right: -40px;
+    padding: 30px 25px;
+    text-align: left;
+  }
+  &:hover{
+    .tipsPop{
+      display: block;
+    }
+  }
+}
+
+// .modal-body{
+//   padding: 0
+// }
+
+// 字体图标基础样式
+  .svg-icon {
+    width: 1em;
+    height: 1em;
+     vertical-align: -0.15em;
+     fill: currentColor;
+     overflow: hidden;
+  }
+
+
+// 布局调整
+  .contentDIV{
+      padding: 0px ;
+      width: 1000px;
+    }
+// 滚动条样式
+  .mCSB_scrollTools .mCSB_draggerRail{
+    background-color:transparent
+  }
+  .mCSB_dragger_bar{
+    background-color:rgba(160,161,161,0.75)!important
+  }
+// 输入框样式类
+  .mui-insetfocus{
+    ::-webkit-input-placeholder { /* WebKit browsers */
+        color: #909090;
+    }
+    :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        color:    #909090
+    }
+    ::-moz-placeholder { //Mozilla Firefox 19+
+        color:    #909090
+    }
+    :-ms-input-placeholder { /* Internet Explorer 10+ */
+        color:    #909090
+    }
+    //input聚焦效果
+    input:focus{
+      border: 1px solid #488FFE !important;
+      -webkit-box-shadow:0 0 5px 2px #98c0fd;  
+        -moz-box-shadow:0 0 5px 2px #98c0fd;  
+        box-shadow:0 0 5px 2px #98c0fd;  
+    }
+    //选择框label style
+    .selectlabel{
+      width: 63px;
+      height: 35px;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 35px;
+      text-align: right;
+      margin-right: 25px;
+      font-size: 14px;
+      color: #7A7A7A;
+      font-weight: normal
+    }
+
+    // 重写选择框
+      .el-select{
+        // x选择框需要定义el-select宽度 默认155px 默认给右边距25px
+              margin-right: 25px;
+              width: 155px;
+              .el-icon-caret-top:before{
+                content:"\E603"
+              }
+              .el-input--small{
+                width: inherit;
+              }
+              .el-input__inner{
+                margin:0;//选择框偏移
+                border-radius:0;
+                color: #909090!important;
+                width: inherit;
+                font-size: 14px;
+                border: 1px solid #EBEBEB!important;
+                font-weight: normal;
+              }
+              & .el-input__inner:hover{
+                  border-color:#909090!important;
+                  border: 1px solid #EBEBEB!important;
+              }
+               & .el-input__inner:focus{
+                  outline: none!important;
+                  box-shadow:none;
+              }
+      }
+      .el-input__inner{
+          color: #909090;
+          border:1px solid #909090!important;
+      }
+    }
+    // 选择框下拉框样式
+  .el-select-dropdown{
+     min-width: 155px;
+    // 最小宽度默认为el select的定义宽度  不能定义小于155px选择框
+      .el-select-dropdown__item{
+          width: inherit;
+          background:#fff;
+          color:#909090;
+          &:hover{
+              color:#488FFE;
+          }
+      }
+      //  selected hover
+      .selected{
+        background:#fff!important;
+         color:#488FFE;
+      }
+  }
+// opration  动画样式
+    .tableDIV .table>tbody>tr>td div.operation{
+      border: 1px solid #EBEBEB;
+      -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        line-height: 25px;
+        cursor: pointer;
+        position: relative;
+        text-align: center;
+        width: 55px;
+        height: 25px;
+        margin: auto;
+    }
+    .tableDIV .table>tbody>tr>td div.operation:hover{
+      border: 1px solid #488FFE;
+    }
+    .tableDIV .table>tbody>tr>td div.operation:hover font{
+      color: #488FFE;
+    }
+    .tableDIV .table>tbody>tr>td.operationTD:hover ul{
+      display: block;
+    }
+    .tableDIV .table>tbody>tr>td div.operation ul{
+      position: absolute;
+      margin: 0px;
+      padding: 10px;
+      width: 180px;
+      background: #FFFFFF;
+      z-index: 1;
+      -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        -webkit-animation: 0.3s animationSubMenu;
+        -o-animation: 0.3s animationSubMenu;
+        animation: 0.3s animationSubMenu;
+        border: 1px solid #EBEBEB;
+        top: 30px;
+        left: -130px;
+        -webkit-box-shadow:0 0 5px 4px rgba(140,140,141,.15);  
+        -moz-box-shadow:0 0 5px 4px rgba(140,140,141,.15);  
+        box-shadow:0 0 5px 4px rgba(140,140,141,.15);  
+        display: none;
+    }
+    .tableDIV .table>tbody>tr>td div.operation ul li{
+      list-style: none;
+      padding: 10px 20px;
+      position: relative;
+      text-align: left;
+    }
+    .tableDIV .table>tbody>tr>td div.operation ul li:before{
+      content: ">";
+        position: absolute;
+        font-size: 13px;
+        right: 15px;
+        top: 15px;
+        width: 15px;
+        height: 15px;
+        background: #d9d9d9;
+        text-align: center;
+        line-height: 14px;
+        color: #FFFFFF;
+        -webkit-border-radius: 100%;
+        -moz-border-radius: 100%;
+        border-radius: 100%;
+    }
+    .tableDIV .table>tbody>tr>td div.operation ul li:hover{
+      color: #488ffe;
+    }
+    .tableDIV .table>tbody>tr>td div.operation ul li:hover:before{
+      background: #488ffe;
+    }
+
+/* SubMenu Animation */
+    @-moz-keyframes animationSubMenu {
+      from {
+        opacity: 0;
+        -webkit-transform: translateY(10%) scale(0.8);
+        -moz-transform: translateY(10%) scale(0.8);
+        -ms-transform: translateY(10%) scale(0.8);
+        -o-transform: translateY(10%) scale(0.8);
+        transform: translateY(10%) scale(0.8);
+      }
+      to {
+        opacity: 1;
+        -webkit-transform: translateY(0) scale(1);
+        -moz-transform: translateY(0) scale(1);
+        -ms-transform: translateY(0) scale(1);
+        -o-transform: translateY(0) scale(1);
+        transform: translateY(0) scale(1);
+      }
+    }
+    @keyframes animationSubMenu {
+      from {
+        opacity: 0;
+        -webkit-transform: translateY(10%) scale(0.8);
+        -moz-transform: translateY(10%) scale(0.8);
+        -ms-transform: translateY(10%) scale(0.8);
+        -o-transform: translateY(10%) scale(0.8);
+        transform: translateY(10%) scale(0.8);
+      }
+      to {
+        opacity: 1;
+        -webkit-transform: translateY(0) scale(1);
+        -moz-transform: translateY(0) scale(1);
+        -ms-transform: translateY(0) scale(1);
+        -o-transform: translateY(0) scale(1);
+        transform: translateY(0) scale(1);
+      }
+    }
+
+
+// button
+.btn,
+.btn:hover,
+.btn.hover,
+.btn:focus,
+.btn.focus,
+.btn:active,
+.btn.active {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.btn {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  padding: 9px 22px;
+  font-family: inherit;
+  color: #fff !important;
+  border-color: #ff5555 !important;
+  background-color: #ff5555 !important;
+}
+.btn:focus,
+.btn.focus {
+  color: #fff !important;
+  border-color: #dd3333 !important;
+  background-color: #dd3333 !important;
+}
+.btn:hover,
+.btn.hover {
+  color: #fff !important;
+  border-color: #ff7777 !important;
+  background-color: #ff7777 !important;
+}
+.btn:active,
+.btn.active {
+  color: #fff !important;
+  border-color: #dd3333 !important;
+  background-color: #dd3333 !important;
+}
+.btn-sm1{
+	-webkit-border-radius: 10px;
+  	-moz-border-radius: 10px;
+  	border-radius: 10px;
+  	-webkit-transition: all 0.2s ease-in-out;
+  	-moz-transition: all 0.2s ease-in-out;
+  	-ms-transition: all 0.2s ease-in-out;
+  	-o-transition: all 0.2s ease-in-out;
+  	transition: all 0.2s ease-in-out;
+  	cursor: pointer;
+  	border: 1px solid #488FFE;
+  	background: #488FFE;
+  	color: #FFFFFF;
+  	font-size: 14px;
+  	width: 55px;
+  	height: 25px;
+  	line-height: 25px;
+  	padding:0px;
+}
+.btn-sm1:hover,.btn-sm1:focus{
+	border: 1px solid #4c7cff;
+  	background: #4c7cff;
+}
+.btn-sm2{
+	border: 1px solid #EBEBEB;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    padding: 2px 5px;
+    cursor: pointer;
+    position: relative;
+    text-align: center;
+    width: 55px;
+    height: 25px;
+    margin: auto;
+    background: #FFFFFF;
+}
+.btn-sm2:hover,.btn-sm2:focus{
+	border: 1px solid #488FFE;
+  	color: #488FFE;
+}
+a{
+	color: inherit;
+}
+a:hover, a.hover, a:focus, a.focus {
+    color: inherit;
+    text-decoration: none;
+}
+
+// 下一步样式
+
+.btn-next {
+    padding: 15px 0px 20px 0px;
+    text-align: center;
+    display:inline-block;
+    border-bottom: 1px solid #EBEBEB;
+}
+
+.btn-next button {
+    width: 105px;
+    height: 35px;
+    line-height: 30px;
+    border: 1px solid #EBEBEB;
+    color: #909090;
+    background: #FFFFFF;
+    margin: 0px 15px;
+    font-size: 16px;
+}
+
+.btn-next button:hover {
+    border: 1px solid #488FFE;
+    background: #488FFE;
+    color: #FFFFFF;
+}
+// ht
+
+
+table{border-collapse:collapse;border-spacing:0;}
+/* start editing from here */
+a{text-decoration:none;}
+.txt-rt{text-align:right;}/* text align right */
+.txt-lt{text-align:left;}/* text align left */
+.txt-center{text-align:center;}/* text align center */
+.float-rt{float:right;}/* float right */
+.float-lt{float:left;}/* float left */
+.clear{clear:both;}/* clear float */
+.pos-relative{position:relative;}/* Position Relative */
+.pos-absolute{position:absolute;}/* Position Absolute */
+.vertical-base{	vertical-align:baseline;}/* vertical align baseline */
+.vertical-top{	vertical-align:top;}/* vertical align top */
+nav.vertical ul li{	display:block;}/* vertical menu */
+nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
+
+*{  
+    margin: 0;  
+    padding: 0;  
+    -moz-box-sizing: border-box;  
+    -webkit-box-sizing: border-box;  
+    box-sizing: border-box;  
+}  
+ 
+
+.loginDIV{	
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+}
+.wrap{
+	margin: 0 auto;
+	width: 80%;
+}
+body a,form li,input[type="submit"],input[type="text"],.sixth-login input[type="submit"],.third-login input[type="submit"]{
+	transition: 0.1s all;
+	-webkit-transition: 0.1s all;
+	-moz-transition: 0.1s all;
+	-o-transition: 0.1s all;
+}
+
+h1 {
+	font-family: 'Exo 2', sans-serif;
+	text-align: center;
+	padding-top: 4em;
+	font-weight: 400;
+	color: #2B2B36;
+	font-size: 2em;
+	margin-top: 0px;
+}
+.login-form {
+	position: relative;
+	width: 500px;
+	padding: 20px;
+	text-align: center;
+	border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	-o-border-radius: 8px;
+	background-color:rgba(0, 0, 0, 0.4);
+	margin: 0px 0px 0px 150px;
+	position: relative;
+}
+
+.login-form p{
+	position: absolute;
+    top: -50px;
+    left: 100px;
+    font-size: 25px;
+    font-weight: bold;
+}
+.head img {
+	width: 100%;
+}
+.avtar img {
+  margin: 2em 0 0;
+}
+.head-info {
+  padding: 5px 0;
+  text-align: center;
+  font-weight: 600;
+  font-size: 2em;
+  color: #fff;
+  background: #23232e;
+  height: 50px;
+	border-top-left-radius: 10px;
+	-webkit-border-top-left-radius: 10px;
+	-moz-border-top-left-radius: 10px;
+	-o-border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	-webkit-border-top-right-radius: 10px;
+	-moz-border-top-right-radius: 10px;
+	-o-border-top-right-radius: 10p
+}
+input[type="text"] {
+	  // width: 80%;
+	  // padding: 1em 2em 1em 3em;
+	  color:#909090;
+	  // font-size: 18px;
+	  outline: none;
+	  // background: url(../assets/images/adm.png) no-repeat 10px 15px;
+	//   border: 1px solid #DADADA;
+	//   font-weight: 100;
+	//   margin-top: 1em;
+	//   border-radius: 8px;
+	// -webkit-border-radius: 8px;
+	// -moz-border-radius: 8px;
+	// -o-border-radius: 8px;   
+   border: 1px solid #EBEBEB;
+}
+ // input[type="password"]{
+	//   width: 80%;
+	//   padding: 1em 2em 1em 3em;
+	//   color: #000000;
+	//   font-size: 18px;
+	//   outline: none;
+	//   // background: url(../assets/images/key.png) no-repeat 10px 23px;
+	//   border: none;
+	//   font-weight: 100;
+	//   border: 1px solid #dadada;
+	//   margin-top: 1em;
+	//   margin-bottom: 1em;
+	//   border-radius: 8px;
+	// -webkit-border-radius: 8px;
+	// -moz-border-radius: 8px;
+	// -o-border-radius: 8px;
+ // }
+input[type="submit"]{
+  font-size: 18px;
+  color: #FFFFFF;
+  outline: none;
+  border: none;
+  background-color:rgba(0, 0, 0, 0.4);
+  width: 80%;
+  padding: 18px 0;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+	-o-border-radius: 8px;
+	cursor: pointer;
+}
+
+label.lbl-1 {
+  background: #6756ea;
+  width: 20px;
+  height: 20px;
+  display: block;
+  float: right;
+  border-radius: 50%;
+  margin: 16px 10px 0px 0px;
+}
+label.lbl-2 {
+  background: #ea569a;
+  width: 20px;
+  height: 20px;
+  display: block;
+  float: right;
+  border-radius: 50%;
+   margin: 16px 10px 0px 0px;
+}
+label.lbl-3 {
+  background: #f1c85f;
+  width: 20px;
+  height: 20px;
+  display: block;
+  float: right;
+  border-radius: 50%;
+  margin: 16px 10px 0px 0px;
+}
+/*--copyrights--*/
+.copy-rights{
+	text-align: center;
+	margin-top: 8em;
+}
+.copy-rights p{
+	color:#FFF;
+	font-size: 1em;
+	line-height:1.8em;
+}
+.copy-rights p a{
+	color:#ff2a75;
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	-ms-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+	text-decoration:none;
+}
+.copy-rights p a:hover{
+	color:#3faa53;
+	text-decoration:none;
+		transition: 0.1s all;
+	-webkit-transition: 0.1s all;
+	-moz-transition: 0.1s all;
+	-o-transition: 0.1s all;
+}
+.contentDIV{
+    padding-right: 0px;
+}
+.modal-dialog .modal-content .modal-body input {
+    border-radius: 0px;
+}
+.red{
+    color: red;
+    display: block;
+}

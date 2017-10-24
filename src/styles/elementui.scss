@@ -1,0 +1,44 @@
+// 重写elementui样式
+// tab样式
+   // 重写tab头部样式
+    .el-tabs__header{
+        border:none;
+        .el-tabs__nav{
+            float:none;
+            .el-tabs__item:hover{
+              color: #488FFE;
+              border: 1px solid #488FFE;
+            }
+            .is-active{
+                color: #488FFE;
+                border: 1px solid #488FFE;
+            }
+        }
+    }
+//  固定输入框大小
+    .el-input--small {
+        font-size: 13px;
+        width: 140px;
+    }
+    .el-input--small input{
+        height: 35px!important;
+    }
+    .el-input__icon {
+        width: 25px;
+    }
+    // input{
+    //     padding: 15px!important;
+    // }
+    select{
+        padding: 5px!important;
+    }
+    .mui-insetfocus .el-select .el-input__inner {
+        padding-left: 10px!important;
+        border-radius: 0px;
+    }
+    .table > thead:first-child > tr:first-child > th{
+        border-top: 1px solid #EBEBEB;
+    }
+    .el-select.modalselect .el-input{
+        height: 30px;
+    }
