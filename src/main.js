@@ -6,7 +6,7 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 import App from './App'
 import * as filters from './filters'; // 全局vue filter
-//import IconSvg from 'components/Icon-svg/index.vue';// svg 组件
+import IconSvg from '@/components/Icon-svg/index.vue';// svg 组件
 //import 'assets/iconfont/iconfont'; // iconfont 具体图标见目录图片
 import vueWaves from './directive/waves';// 水波纹指令
 import Multiselect from 'vue-multiselect';// 使用的一个多选框组件，element-ui的select不能满足所有需求
@@ -112,7 +112,7 @@ console.log('DEFAULT_PATH:',DEFAULT_PATH)
 
 // register globally
 Vue.component('multiselect', Multiselect);
-//Vue.component('icon-svg', IconSvg)
+Vue.component('icon-svg', IconSvg)
 Vue.use(ElementUI);
 Vue.use(vueWaves);
 

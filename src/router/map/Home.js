@@ -26,13 +26,13 @@ const increaseShare = resolve => require(['@/views/business/businessDealt/increa
 //代办任务
 import Todo from './Todo';
 //账户管理
-const queryInvestor = resolve => require(['@/views/business/accountManage/queryInvestor/queryInvestor.vue'], resolve);
-const singleCustomer = resolve => require(['@/views/business/accountManage/singleCustomer/singleCustomer.vue'], resolve);
-const visitorQuery = resolve => require(['@/views/business/accountManage/visitorQuery/visitorQuery.vue'], resolve);
-const visitorBind = resolve => require(['@/views/business/accountManage/visitorQuery/visitorBind.vue'], resolve);
-
-const customerAccount = resolve => require(['@/views/business/accountManage/customerAccount/customerAccount.vue'], resolve);//客户开户
-const customerGister = resolve => require(['@/views/business/accountManage/customerAccount/customerGister.vue'], resolve);//客户注册 
+//const queryInvestor = resolve => require(['@/views/business/accountManage/queryInvestor/queryInvestor.vue'], resolve);
+//const singleCustomer = resolve => require(['@/views/business/accountManage/singleCustomer/singleCustomer.vue'], resolve);
+//const visitorQuery = resolve => require(['@/views/business/accountManage/visitorQuery/visitorQuery.vue'], resolve);
+//const visitorBind = resolve => require(['@/views/business/accountManage/visitorQuery/visitorBind.vue'], resolve);
+//
+//const customerAccount = resolve => require(['@/views/business/accountManage/customerAccount/customerAccount.vue'], resolve);//客户开户
+//const customerGister = resolve => require(['@/views/business/accountManage/customerAccount/customerGister.vue'], resolve);//客户注册 
 
 export default {
 	path: "/business-index",
@@ -128,34 +128,34 @@ export default {
 		//代办任务
 		Todo,
 		//账户管理
-		{
-			path: '/queryInvestor',
-			component: queryInvestor,
-			name: "投资者查询"
-		},{
-			path: '/singleCustomer',
-			component: singleCustomer,
-			name: "单客户查询"
-		},
-		{
-			path: '/visitorQuery',
-			component: visitorQuery,
-			name: "游客查询"
-		},
-		{
-			path: '/visitorQuery/visitorBind',
-			component: visitorBind,
-			name: "游客开户"
-		},
-		{
-			path: '/customerAccount',
-			component: customerAccount,
-			name: "客户开户"
-		},
-		{
-			path: '/customerAccount/customerGister',
-			component: customerGister,
-			name: "客户注册"
-		},
+//		{
+//			path: '/queryInvestor',
+//			component: queryInvestor,
+//			name: "投资者查询"
+//		},{
+//			path: '/singleCustomer',
+//			component: singleCustomer,
+//			name: "单客户查询"
+//		},
+//		{
+//			path: '/visitorQuery',
+//			component: visitorQuery,
+//			name: "游客查询"
+//		},
+//		{
+//			path: '/visitorQuery/visitorBind',
+//			component: visitorBind,
+//			name: "游客开户"
+//		},
+//		{
+//			path: '/customerAccount',
+//			component: customerAccount,
+//			name: "客户开户"
+//		},
+//		{
+//			path: '/customerAccount/customerGister',
+//			component: customerGister,
+//			name: "客户注册"
+//		},
 	]
 }

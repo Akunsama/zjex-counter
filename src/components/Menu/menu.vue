@@ -24,7 +24,7 @@
 			<li>
 				<img :src="zh" /><b>账户管理</b>
 				<ul>
-					<li>
+					<!--<li>
 						<router-link to="/customerAccount" @click.native="flushCom($event)">客户开户</router-link>
 					</li>
 					<li>
@@ -35,7 +35,7 @@
 					</li>
 					<li>
 						<router-link to="/visitorQuery" @click.native="flushCom($event)">游客查询</router-link>
-					</li>
+					</li>-->
 					<li>U-key管理</li>
 				</ul>
 			</li>
